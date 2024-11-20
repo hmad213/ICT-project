@@ -6,42 +6,42 @@ const items = {
     },
     "Deal 2":{
         amount: 0,
-        img: "",
+        img: "place.jpg",
         price: 0
     },
     "Deal 3":{
         amount: 0,
-        img: "",
+        img: "place.jpg",
         price: 0
     },
     "Dal Bunkabab":{
         amount: 0,
-        img: "",
+        img: "place.jpg",
         price: 0
     },
     "Bunkabab with Egg":{
         amount: 0,
-        img: "",
+        img: "place.jpg",
         price: 0
     },
     "Chapli Burger":{
         amount: 0,
-        img: "",
+        img: "place.jpg",
         price: 0
     },
     "Fries":{
         amount: 0,
-        img: "",
+        img: "place.jpg",
         price: 0
     },
     "Cold drink":{
         amount: 0,
-        img: "",
+        img: "place.jpg",
         price: 0
     },
     "Loaded Fries":{
         amount: 0,
-        img: "",
+        img: "place.jpg",
         price: 0
     }
 }
@@ -55,9 +55,6 @@ let sidebarButton = document.getElementById("sidebar-button");
 let overlay = document.getElementById("overlay");
 let cartItems = document.getElementById("cart-items");
 let emptyCart = document.getElementById("empty-cart");
-
-const itemDiv = document.createElement("div")
-itemDiv.classList.add("item")
 
 cartButton.onclick = function(){
     cart.style.width = "400px";
@@ -81,6 +78,8 @@ function update_cart(){
     for (let item in items){
         if(items.hasOwnProperty(item)){
             if(items[item].amount > 0){
+                const itemDiv = document.createElement("div");
+                itemDiv.classList.add("item");
                 itemDiv.innerHTML = `<img src=images/${items[item].img}>\n
                                     <h2>${item} X ${items[item].amount}</h2>\n
                                     <span>Rs${items[item].price * items[item].amount}</span>`;
