@@ -8,7 +8,11 @@
 </head>
 <body>
     <div id="cart">
-        <button id="hello">hello</button>
+        <div id="empty-cart">
+            <h2>Cart is empty</h2>
+        </div>
+        <div id="cart-items">
+        </div>
     </div>
     <div id="sidebar">
 
@@ -39,14 +43,15 @@
             <div class="flex-item">
                 <img src="images/place.jpg" alt= "deal 1">
                 <h3>Deal 1</h3>
+                <button type="submit" onclick="add_to_cart(`Deal 1`)">Add to cart</button>
             </div>
             <div class="flex-item">
                 <img src="images/place.jpg" alt="combo 3" >
-                <h3>Combo 2</h3>
+                <h3>Deal 2</h3>
             </div>
             <div class="flex-item">
                 <img src="images/place.jpg" alt="bunkabab">
-                <h3>Bunkabab</h3>
+                <h3>Dal Bunkabab</h3>
             </div>
         </div>
         
@@ -105,9 +110,6 @@
             </div>
         </div>
         
-    </div>
-    <div class="cart">
-
     </div>
     <footer>
         <div class="footcontact">
