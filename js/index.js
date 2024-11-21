@@ -46,8 +46,6 @@ const items = {
     }
 }
 
-usedItems = [];
-
 let cart = document.getElementById("cart");
 let cartButton = document.getElementById("cart-button");
 let sidebar = document.getElementById("sidebar");
@@ -55,9 +53,10 @@ let sidebarButton = document.getElementById("sidebar-button");
 let overlay = document.getElementById("overlay");
 let cartItems = document.getElementById("cart-items");
 let emptyCart = document.getElementById("empty-cart");
+let usedCart = document.getElementById("used-cart")
 
 cartButton.onclick = function(){
-    cart.style.width = "400px";
+    cart.style.width = "500px";
     overlay.style.visibility = "visible";
 }
 
@@ -74,26 +73,38 @@ overlay.onclick = function(){
 
 function update_cart(){
     let update = false;
+    let hr = false
     cartItems.innerHTML = ""
     for (let item in items){
         if(items.hasOwnProperty(item)){
             if(items[item].amount > 0){
+                if(hr){
+                    cartItems.appendChild(document.createElement("hr"))
+                }
                 const itemDiv = document.createElement("div");
                 itemDiv.classList.add("item");
                 itemDiv.innerHTML = `<img src=images/${items[item].img}>\n
-                                    <h2>${item} X ${items[item].amount}</h2>\n
-                                    <span>Rs${items[item].price * items[item].amount}</span>`;
+                                    <div class="details">\n
+                                        <h3>${item}</h3>\n
+                                        <span>Rs ${items[item].price}</span>\n
+                                    </div>
+                                    <div class="add-remove-buttons">
+                                        <button class="add-button" onclick="add_to_cart('${item}')">+</button>
+                                        <button class="remove-button" onclick="remove_from_cart('${item}')">-</button>
+                                    </div>
+                                    <span>X ${items[item].amount}</span>`;
                 cartItems.appendChild(itemDiv);
                 update = true
+                hr = true
             }
         }
     }
     if(update){
-        cartItems.style.visibility = "visible";
+        usedCart.style.visibility = "visible";
         emptyCart.style.visibility = "hidden";
     }
     else{
-        cartItems.style.visibility = "hidden";
+        usedCart.style.visibility = "hidden";
         emptyCart.style.visibility = "visible";
     }
 }
@@ -102,5 +113,10 @@ function add_to_cart(option){
     let item = items[option];
     item.amount += 1;
     update_cart();
-    console.log(item.amount)
+}
+
+function remove_from_cart(option){
+    let item = items[option];
+    item.amount -= 1;
+    update_cart();
 }
