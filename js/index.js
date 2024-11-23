@@ -1,47 +1,47 @@
 const items = {
     "Deal 1":{
         amount: 0,
-        img: "place.jpg",
+        img: "Deal-1.png",
         price: 50
     },
     "Deal 2":{
         amount: 0,
-        img: "place.jpg",
+        img: "Deal-2.png",
         price: 0
     },
     "Deal 3":{
         amount: 0,
-        img: "place.jpg",
+        img: "Deal-3.png",
         price: 0
     },
     "Dal Bunkabab":{
         amount: 0,
-        img: "place.jpg",
+        img: "Dal-Bunkabab.png",
         price: 0
     },
     "Bunkabab with Egg":{
         amount: 0,
-        img: "place.jpg",
+        img: "Bunkabab-with-Egg.png",
         price: 0
     },
     "Chapli Burger":{
         amount: 0,
-        img: "place.jpg",
+        img: "Chapli-Burger.png",
         price: 0
     },
     "Fries":{
         amount: 0,
-        img: "place.jpg",
+        img: "Fries.png",
         price: 0
     },
     "Cold drink":{
         amount: 0,
-        img: "place.jpg",
+        img: "Cold-Drink.png",
         price: 0
     },
     "Loaded Fries":{
         amount: 0,
-        img: "place.jpg",
+        img: "Loaded-Fries.png",
         price: 0
     }
 }
@@ -71,16 +71,36 @@ overlay.onclick = function(){
     overlay.style.visibility = "hidden";
 }
 
+function update_total(total){
+    let totalDiv = document.getElementById("total");
+    let tax = total * 0.13;
+    totalDiv.innerHTML = `<div>\n
+                            <span>Total:</span>\n
+                            <span>${total}</span>\n
+                         </div>\n
+                         <div>\n
+                            <span>Tax(13%):</span>\n
+                            <span>${tax}</span>\n
+                         </div>\n
+                         <div>\n
+                            <span>Delivery Fee:</span>\n
+                            <span>150</span>\n
+                         </div>
+                         <div>\n
+                            <span>Grand Total:</span>\n
+                            <span>${total+tax+150}</span>\n
+                         </div>`
+}
+
 function update_cart(){
     let update = false;
     let hr = false
+    let total = 0
     cartItems.innerHTML = ""
     for (let item in items){
         if(items.hasOwnProperty(item)){
             if(items[item].amount > 0){
-                if(hr){
-                    cartItems.appendChild(document.createElement("hr"))
-                }
+                total += items[item].amount * items[item].price;
                 const itemDiv = document.createElement("div");
                 itemDiv.classList.add("item");
                 itemDiv.innerHTML = `<img src=images/${items[item].img}>\n
@@ -95,13 +115,15 @@ function update_cart(){
                                     <span>X ${items[item].amount}</span>`;
                 cartItems.appendChild(itemDiv);
                 update = true
-                hr = true
+                cartItems.appendChild(document.createElement("hr"))
             }
         }
     }
     if(update){
         usedCart.style.visibility = "visible";
         emptyCart.style.visibility = "hidden";
+
+        update_total(total);
     }
     else{
         usedCart.style.visibility = "hidden";

@@ -159,6 +159,10 @@ h1{
     cursor: pointer;
 }
 
+.flex-item button:hover{
+    background-color: rgb(201, 0, 0);
+}
+
 footer{
     background-color: #1C1816;
     height: 500px;
@@ -184,6 +188,8 @@ footer{
 
 #cart{
     right: 0;
+    overflow-y: scroll;
+    width: 12px;
 }
 
 #sidebar{
@@ -240,6 +246,7 @@ footer{
 
 .item img{
     height: 60px;
+    width: 60px;
     margin-right: 10px;
 }
 
@@ -279,6 +286,10 @@ footer{
     font-size: 20px;
 }
 
+.add-button:hover, .remove-button:hover{
+    cursor: pointer;
+}
+
 .add-button{
     margin-left: 5px;
 }
@@ -294,4 +305,67 @@ footer{
     border-color: white;
     height: 1.5px;
     width: 90%;
+}
+
+#total{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+    padding: 15px;
+}
+
+#total div{
+    display: flex;
+    justify-content: space-between;
+}
+
+#suggestions{
+    display: flex;
+    gap: 20px;
+}
+
+.suggestion{
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+    height: 140px;
+    padding: 10px;
+    color: white;
+    border: red dashed 3px;
+    border-radius: 10px;
+    background-color: black;
+}
+
+.suggestion div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: 32px;
+}
+
+.suggestion h4{
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.suggestion button{
+    background-color: red;
+    border: none;
+    border-radius: 100px;
+    font-size: 20px;
+}
+
+.suggestion button:hover{
+    cursor: pointer;
+}
+
+.suggestion img{
+    height: 70px;
+    width: 90px;
+    margin-right: 10px;
 }
