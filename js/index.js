@@ -2,47 +2,47 @@ const items = {
     "Deal 1":{
         amount: 0,
         img: "Deal-1.png",
-        price: 50
+        price: 450
     },
     "Deal 2":{
         amount: 0,
         img: "Deal-2.png",
-        price: 0
+        price: 750
     },
     "Deal 3":{
         amount: 0,
         img: "Deal-3.png",
-        price: 0
+        price: 950
     },
     "Dal Bunkabab":{
         amount: 0,
         img: "Dal-Bunkabab.png",
-        price: 0
+        price: 220
     },
     "Bunkabab with Egg":{
         amount: 0,
         img: "Bunkabab-with-Egg.png",
-        price: 0
+        price: 250
     },
     "Chapli Burger":{
         amount: 0,
         img: "Chapli-Burger.png",
-        price: 0
+        price: 250
     },
     "Fries":{
         amount: 0,
         img: "Fries.png",
-        price: 0
+        price: 100
     },
     "Cold drink":{
         amount: 0,
         img: "Cold-Drink.png",
-        price: 0
+        price: 100
     },
     "Loaded Fries":{
         amount: 0,
         img: "Loaded-Fries.png",
-        price: 0
+        price: 200
     }
 }
 
@@ -73,7 +73,7 @@ overlay.onclick = function(){
 
 function update_total(total){
     let totalDiv = document.getElementById("total");
-    let tax = total * 0.13;
+    let tax = Math.round(total * 0.13);
     totalDiv.innerHTML = `<div>\n
                             <span>Total:</span>\n
                             <span>${total}</span>\n
@@ -89,6 +89,9 @@ function update_total(total){
                          <div>\n
                             <span>Grand Total:</span>\n
                             <span>${total+tax+150}</span>\n
+                         </div>\n
+                         <div id="checkout-button">\n
+                            <button>Checkout</button>\n
                          </div>`
 }
 
