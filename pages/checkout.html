@@ -7,65 +7,69 @@
     <link rel = "stylesheet" href="../style/checkout.css">
 </head>
 <body>
-    <img class="Logo" src = "../images/logo.webp">
-        <div class = "boxes">
-            <div class ="Checkout">
-                <h2 class ="text">Checkout</h2>
-                <hr class = "lines">
+    <img class="logo" src = "../images/logo.webp">
+        <div class="container">
+            <div class="checkout">
+                <h2>Checkout</h2>
+                <hr class="checkout-hr">
                 <form>
-                    <div class = "boxes">
+                    <div class="box">
                             <div class="short">
-                                <h3>Title</h3>
+                                <h4>Title</h4>
                                 <input type="text" id =Title placeholder="Mr/Mrs">
                             </div>
                             <div class ="long">
-                                <h3>Full Name</h3>
+                                <h4>Full Name</h4>
                                 <input type="text" id =Title placeholder="eg: Faran Mukhtar">
                                 
                             </div>
                     </div>
-                    <div class = "boxes">
+                    <div class="box">
                         <div class ="equal">
-                            <h3>Mobile Number</h3>
+                            <h4>Mobile Number</h4>
                             <input type="text" id =Title placeholder="03xx-xxxxxxx">
                         </div>
                         <div class ="equal">
-                            <h3>Alternate Mobile Number</h3>
+                            <h4>Alternate Mobile Number</h4>
                             <input type="text" id =Title placeholder="03xx-xxxxxxx">
                         </div>
                     </div>
-                    <div class ="delivery">
-                        <h3>Delivery Address</h3>
+                    <div class ="box longer">
+                        <h4>Delivery Address</h4>
                         <input type="text" id =Title placeholder="eg: Faran Mukhtar">
                     </div>
-                    <div class = "boxes">
+                    <div class="box">
                         <div class ="equal">
-                            <h3>Nearest Landmark</h3>
+                            <h4>Nearest Landmark</h4>
                             <input type="text" id =Title placeholder="Any famous place nearby">
                         </div>
                         <div class ="equal">
-                            <h3>Email Adress</h3>
+                            <h4>Email Adress</h4>
                             <input type="text" id =Title placeholder="Your Email">
                         </div>
                     </div>
-                    <div class ="delivery">
-                        <h3>Delivery Instructions</h3>
+                    <div class="box longer">
+                        <h4>Delivery Instructions</h4>
                         <input type="text" id =Title placeholder="Delivery Instructions">
                     </div>
-                    <h3>Payment Information</h3>
-                    <div class = "boxes">
-                        <img class = "Payment" src ="../images/cod.png">
-                        <img class = "Payment" src ="../images/credit.png">
+                    <h4>Payment Information</h4>
+                    <div class="box">
+                        <img id="cod" onclick="select_option('cod')" class="Payment" src ="../images/cod.png">
+                        <img id="credit" onclick="select_option('credit')" class="Payment" src ="../images/credit.png">
                     </div>
-                    <div class ="delivery">
-                        <h3>Change request</h3>
+                    <div class="box longer">
+                        <h4>Change request</h4>
                         <input type="text" id =Title placeholder="eg: 500rs ">
                     </div>
                 </form>
             </div>
-            <div class ="list">
+            <div class="cart">
+                <div id="cart-items"></div>
+                <div id="total">
+                </div>
             </div>
         </div>
-        <h3 ><a class ="back" href ="index.html">Add more items</a></h3>
+        <button class="back" onclick="back_to_home()">Add more items</button>
+        <script src="../js/checkout.js"></script>
 </body>
 </html>
