@@ -387,3 +387,21 @@ footer{
 #checkout-button button:hover{
     background-color: rgb(201, 0, 0);
 }
+
+#cart-popup{
+    position: fixed;
+    top: 85%;
+    right: 10%;
+    width: 200px;
+    font-size: 20px;
+    border-radius: 100px;
+    border: none;
+    color: white;
+    background-color: #ff2800;
+    padding: 20px;
+    visibility: hidden;
+}
+
+#cart-popup:hover{
+    background-color: rgb(201, 0, 0);
+}

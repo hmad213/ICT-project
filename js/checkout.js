@@ -41,7 +41,7 @@ totalDiv.innerHTML = `<div>\n
                         <span>${total+tax+150}</span>\n
                         </div>\n
                         <div id="checkout-button-div">\n
-                        <button id="checkout-button" onclick="save_cart()">Checkout</button>\n
+                        <button id="checkout-button" onclick="place_order()">Checkout</button>\n
                         </div>`
 
 function select_option(option){
@@ -53,6 +53,11 @@ function select_option(option){
         document.getElementById("cod").style.borderColor = "red";
         document.getElementById("credit").style.borderColor = "greenyellow";
     }
+}
+
+function place_order(){
+    sessionStorage.clear();
+    window.location.href = "./final.html";
 }
 
 function back_to_home(){

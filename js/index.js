@@ -6,7 +6,7 @@ let overlay = document.getElementById("overlay");
 let cartItems = document.getElementById("cart-items");
 let emptyCart = document.getElementById("empty-cart");
 let usedCart = document.getElementById("used-cart");
-
+let cartPopup = document.getElementById("cart-popup");
 let items = JSON.parse(sessionStorage.getItem('cart')) || [];
 if (items == 0){
     console.log("hi");
@@ -84,6 +84,11 @@ function save_cart(){
     window.location.href = "./pages/checkout.html"
 }
 
+cartPopup.onclick = function(){
+    cart.style.width = "500px";
+    overlay.style.visibility = "visible";
+}
+
 function update_total(total){
     let totalDiv = document.getElementById("total");
     let tax = Math.round(total * 0.13);
@@ -139,10 +144,12 @@ function update_cart(){
         usedCart.style.visibility = "visible";
         emptyCart.style.visibility = "hidden";
         update_total(total);
+        cartPopup.style.visibility = "visible";
     }
     else{
         usedCart.style.visibility = "hidden";
         emptyCart.style.visibility = "visible";
+        cartPopup.style.visibility = "hidden";
     }
 }
 
