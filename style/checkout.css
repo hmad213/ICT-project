@@ -107,14 +107,13 @@ form{
 
 .back{
     color: white;
-    margin-left: 1250px;
     padding: 10px;
-    border: solid red;
     background-color: #1C1816;
+    border: none;
+    margin-bottom: 22px;
 }
 
 .back:hover{
-    padding: 20px;
     background-color: red;
     color :black;
     font-size: larger;
